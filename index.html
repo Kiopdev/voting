@@ -3,31 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RizzMaster - The Coolest Site Ever</title>
+    <title>RizzMaster Ultra - Cyberpunk Rizz Zone</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <canvas id="particle-canvas"></canvas> <!-- For particle effects -->
     <div id="intro-screen">
-        <h1>Welcome to RizzMaster!</h1>
-        <p>Let's get to know you... 😏</p>
+        <h1 class="glitch">Welcome to RizzMaster Ultra!</h1>
+        <p>Prepare for maximum rizz... 🔥</p>
         <div id="questions">
-            <p id="question1">What's your favorite way to unwind after a long day?</p>
-            <input type="text" id="answer1" placeholder="Tell me...">
-            <button id="next1">Next</button>
+            <p id="question1" class="rizz-text">If you were a star, you'd be the brightest in my sky. What's your go-to vibe for a perfect night? 🌟</p>
+            <input type="text" id="answer1" placeholder="Make my heart skip...">
+            <button id="next1" class="cool-btn">Rizz Me Up</button>
         </div>
         <div id="question2" style="display: none;">
-            <p>If you could have any superpower, what would it be? (Mine's making hearts appear! 💖)</p>
-            <input type="text" id="answer2" placeholder="Spill it...">
-            <button id="start-game">Let's Rizz!</button>
+            <p class="rizz-text">You're already stealing my breath. If we were in a movie, what role would you play? (I'd be the charming hacker!) 🎥</p>
+            <input type="text" id="answer2" placeholder="Tell me your story...">
+            <button id="start-game" class="cool-btn">Dive Into Rizz!</button>
         </div>
     </div>
     
     <div id="game-screen" style="display: none;">
-        <h1>Click to Rizz Mini-Game!</h1>
-        <p>Click the floating hearts to score points. Aim for 100 to become a RizzMaster! 💕</p>
-        <div id="score">Score: 0</div>
-        <div id="hearts-container"></div>
-        <button id="reset-game">Play Again</button>
+        <h1 class="glitch">Rizz Dodge Challenge!</h1>
+        <p>Dodge the bad vibes (skulls) and collect hearts. Combo for multiplier! 💥</p>
+        <div id="score">Score: 0 | Combo: x1</div>
+        <div id="game-area">
+            <div id="player">😘</div>
+            <div id="objects-container"></div>
+        </div>
+        <button id="reset-game" class="cool-btn">Rizz Again</button>
     </div>
 
     <script src="script.js"></script>
