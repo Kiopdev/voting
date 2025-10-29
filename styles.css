@@ -1,81 +1,120 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff);
+    font-family: 'Courier New', monospace;
+    background: radial-gradient(circle, #ff006e, #8338ec, #3a86ff, #000);
     background-size: 400% 400%;
-    animation: gradientShift 5s ease infinite;
-    color: white;
+    animation: pulseGlow 2s ease-in-out infinite alternate;
+    color: #00ff88;
     text-align: center;
     margin: 0;
     padding: 20px;
-    overflow-x: hidden;
-}
-
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-h1 {
-    font-size: 3em;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-    animation: bounceIn 1s ease-out;
-}
-
-@keyframes bounceIn {
-    0% { transform: scale(0.3); opacity: 0; }
-    50% { transform: scale(1.05); }
-    70% { transform: scale(0.9); }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-input, button {
-    padding: 10px;
-    margin: 10px;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.2em;
-    transition: all 0.3s ease;
-}
-
-button {
-    background: #ffbe0b;
-    color: black;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-}
-
-#hearts-container {
-    position: relative;
-    height: 400px;
     overflow: hidden;
+    cursor: none; /* Hide cursor for cool effect */
 }
 
-.heart {
+@keyframes pulseGlow {
+    0% { filter: brightness(1); }
+    100% { filter: brightness(1.5) hue-rotate(180deg); }
+}
+
+.glitch {
+    font-size: 3em;
+    text-shadow: 0 0 20px #ff006e, 0 0 40px #8338ec;
+    animation: glitch 0.5s infinite;
+    transform: perspective(500px) rotateX(10deg);
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+.rizz-text {
+    font-size: 1.5em;
+    animation: textGlow 1s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+    0% { text-shadow: 0 0 10px #ff006e; }
+    100% { text-shadow: 0 0 20px #00ff88; }
+}
+
+input, .cool-btn {
+    padding: 15px;
+    margin: 15px;
+    border: 2px solid #00ff88;
+    border-radius: 20px;
+    font-size: 1.2em;
+    background: rgba(0, 0, 0, 0.8);
+    color: #00ff88;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px #ff006e;
+}
+
+.cool-btn {
+    cursor: pointer;
+}
+
+.cool-btn:hover {
+    transform: scale(1.2) rotate(5deg);
+    box-shadow: 0 0 40px #8338ec;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+#game-area {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border: 2px solid #00ff88;
+    background: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    margin: 20px auto;
+}
+
+#player {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3em;
+    transition: left 0.1s;
+}
+
+.object {
     position: absolute;
     font-size: 2em;
-    color: #ff006e;
-    animation: float 3s ease-in-out infinite;
-    cursor: pointer;
-    transition: transform 0.2s;
+    animation: fall 3s linear infinite;
 }
 
-.heart:hover {
-    transform: scale(1.5);
+@keyframes fall {
+    0% { top: -50px; }
+    100% { top: 450px; }
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-}
+.heart { color: #ff006e; }
+.skull { color: #ff0000; }
 
 #score {
     font-size: 2em;
     margin: 20px;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 20px #00ff88;
+}
+
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
 }
