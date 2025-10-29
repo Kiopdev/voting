@@ -1,0 +1,81 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff);
+    background-size: 400% 400%;
+    animation: gradientShift 5s ease infinite;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+h1 {
+    font-size: 3em;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    animation: bounceIn 1s ease-out;
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+input, button {
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+}
+
+button {
+    background: #ffbe0b;
+    color: black;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+#hearts-container {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    font-size: 2em;
+    color: #ff006e;
+    animation: float 3s ease-in-out infinite;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.heart:hover {
+    transform: scale(1.5);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+#score {
+    font-size: 2em;
+    margin: 20px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
